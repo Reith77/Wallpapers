@@ -19,3 +19,5 @@ for filename in os.listdir(images_dir):
         new_name = images_dir + f"/`{filename.split('.')[0]} - {width}x{height}.{filename.split('.')[1]}"
         os.rename(path, new_name)
         print(f"[✅] Renamed {filename.split('.')[0]} successfully")
+    else:
+        print(f"[ⓧ] Ignoring already processed file: {filename} at {path}")
