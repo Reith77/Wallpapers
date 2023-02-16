@@ -17,7 +17,10 @@ for filename in os.listdir(images_dir):
         print(f'\t[-] Width = {width}')
         print(f'\t[-] Height = {height}')
         new_name = images_dir + f"/`{filename.split('.')[0]} - {width}x{height}.{filename.split('.')[1]}"
-        os.rename(path, new_name)
-        print(f"[✅] Renamed {filename.split('.')[0]} successfully")
+        if os.path.exists(new_name) != True:
+            os.rename(path, new_name)
+            print(f"[✅] Renamed {filename.split('.')[0]} successfully")
+        else:
+            print("[❌] File with same name already exists")
     else:
-        print(f"[ⓧ] Ignoring already processed file: {filename} at {path}")
+        print(f"[❌] Ignoring already processed file: {filename} at {path}")
